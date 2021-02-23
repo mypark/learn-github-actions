@@ -1,0 +1,85 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Sync Features
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          
+      - name: Copy to destination
+        # You may pin to the exact commit or the version.
+        # uses: olivr/copybara-action@19127a45a319c24f79175814af5cc1c2a83e9b05
+        uses: olivr/copybara-action@v1.2.2
+        with:
+          # SSH public key.
+          ssh_key: 
+          # Personal access token with `repo` permissions. Always required on *destination*. Required on *SoT* only if the variable `sot_branch` below is left empty and to decide between **push** and **init** workflows.
+          access_token: # optional
+          
+          # Source repository (Source of Truth).
+          sot_repo: # optional
+          # SoT branch. Defaults to your repository's default branch.
+          sot_branch: main
+          
+          # Destination repository.
+          destination_repo: https://github.com/mypark/learn-copybara-demo.git
+          
+          # Destination branch. Defaults to the same as your SoT's branch name.
+          destination_branch: master
+  
+          push_include: # optional, default is **
+          # Files to exclude when pushing from SoT => Destination (space separated globs). Defaults to none.
+          push_exclude: # optional, default is 
+          # Files to move before pushing from SoT => Destination. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to reverse of `pr_move`. `push_move` is always run before `push_replace`.
+          push_move: # optional, default is 
+          # Files to replace before pushing from SoT => Destination. In the format `search||replace||match` where `match` is a glob filter to search only those files (defaults to all). Separate each replace operation by a line return. Defaults to reverse of `pr_replace`. `push_replace` is always run after `push_move`.
+          push_replace: # optional, default is 
+          # Files to include when pulling from Destination => SoT (space separated globs). Defaults to all files.
+          pr_include: # optional, default is **
+          # Files to exclude when pulling from Destination => SoT (space separated globs). Defaults to none.
+          pr_exclude: # optional, default is 
+          # Files to move before pushing from Destionation => SoT. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to none. `pr_move` is always run after `pr_replace`.
+          pr_move: # optional, default is 
+          # Files to replace before pushing from Destionation => SoT. In the format `search||replace||match` where `match` is a glob filter to search only those files (defaults to all). Separate each replace operation by a line return. Defaults to none. `pr_replace` is always run before `pr_move`.
+          pr_replace: # optional, default is 
+         
+          # Copybara custom configuration file to use. Using this will ignore all the pr_* and push_* inputs.
+          custom_config: # optional, default is 
+          
+          # Workflow to execute. Defaults to auto-detect (init / push / pr).
+          workflow: # optional, default is 
+          
+          # Use this, if you want to manually specify some command line options (space-separated).
+          copybara_options: # optional, default is         
+          create_repo: no
+
+
