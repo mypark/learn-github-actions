@@ -3,7 +3,7 @@ Feature: Sync Features to Github
   Background:
     Given a valid Github account
 
-  @ORPHAN
+  @MANUAL
   Scenario: Sync to Github
     Given a valid Git
     When a feature is create
