@@ -43,8 +43,6 @@ jobs:
           
           # Destination repository.
           destination_repo: mypark/learn-copybara-demo
-          
-          # Destination branch. Defaults to the same as your SoT's branch name.
           destination_branch: master
   
 
