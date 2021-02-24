@@ -48,13 +48,13 @@ jobs:
           push_include: "**.feature .github/workflows/copy-features.yml"
           
           # Files to move before pushing from SoT => Destination. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to reverse of `pr_move`. `push_move` is always run before `push_replace`.
-          # push_move: "||features"
+          push_move: "||features"
 
           # Workflow to execute. Defaults to auto-detect (init / push / pr).
           workflow: push 
           
           # Use this, if you want to manually specify some command line options (space-separated).
-        # copybara_options: # optional, default is         
+          copybara_options: --force
           create_repo: yes
 
 
