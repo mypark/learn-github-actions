@@ -45,29 +45,11 @@ jobs:
           destination_repo: mypark/learn-copybara-demo
           destination_branch: master
   
-
+          push_include: "copybara/**.feature .github/workflows/copy-features.yml"
           
           # Files to move before pushing from SoT => Destination. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to reverse of `pr_move`. `push_move` is always run before `push_replace`.
-          push_move: # optional, default is 
-          
-          # Files to replace before pushing from SoT => Destination. In the format `search||replace||match` where `match` is a glob filter to search only those files (defaults to all). Separate each replace operation by a line return. Defaults to reverse of `pr_replace`. `push_replace` is always run after `push_move`.
-          push_replace: # optional, default is 
-          
-          # Files to include when pulling from Destination => SoT (space separated globs). Defaults to all files.
-          pr_include: # optional, default is **
-          
-          # Files to exclude when pulling from Destination => SoT (space separated globs). Defaults to none.
-          pr_exclude: # optional, default is 
-          
-          # Files to move before pushing from Destionation => SoT. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to none. `pr_move` is always run after `pr_replace`.
-          pr_move: # optional, default is 
-          
-          # Files to replace before pushing from Destionation => SoT. In the format `search||replace||match` where `match` is a glob filter to search only those files (defaults to all). Separate each replace operation by a line return. Defaults to none. `pr_replace` is always run before `pr_move`.
-          pr_replace: # optional, default is 
-         
-          # Copybara custom configuration file to use. Using this will ignore all the pr_* and push_* inputs.
-          custom_config: # optional, default is 
-          
+          push_move: "copybara||resources/features"
+
           # Workflow to execute. Defaults to auto-detect (init / push / pr).
           # workflow: push 
           
