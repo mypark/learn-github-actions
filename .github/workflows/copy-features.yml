@@ -54,7 +54,7 @@ jobs:
           workflow: push 
           
           # Use this, if you want to manually specify some command line options (space-separated).
-          copybara_options: --force
+          copybara_options: --force --init-history
           create_repo: yes
 
 
