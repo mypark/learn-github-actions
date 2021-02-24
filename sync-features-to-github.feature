@@ -5,6 +5,6 @@ Feature: Sync Features to Github
 
   @MANUAL
   Scenario: Sync to Github
-    Given a valid Git
+    Given a valid Git link
     When a feature is create
     Then it syncs to Git
