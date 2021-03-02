@@ -1,3 +1,4 @@
+@Exchange
 Feature: Sync from Jira
 
   @DEMO-8 @MANUAL @Exchange @OPEN
