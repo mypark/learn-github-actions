@@ -1,6 +1,8 @@
 @Exchange @repo-demo
 Feature: Sync from Jira
 
+  A sync to jira from the #exchange repo
+
   @DEMO-8 @MANUAL @Exchange @OPEN
   Scenario: Label sync to subfolder
     Given a new user story
