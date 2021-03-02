@@ -1,4 +1,4 @@
-@Exchange
+@Exchange @repo-demo
 Feature: Sync from Jira
 
   @DEMO-8 @MANUAL @Exchange @OPEN
