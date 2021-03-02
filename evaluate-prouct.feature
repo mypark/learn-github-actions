@@ -1,6 +1,6 @@
 Feature: Evaluate prouct
 
-  @DEMO-3 @MANUAL @OPEN
+  @DEMO-3 @MANUAL @OPEN @Exchange
   Scenario: Try out a POC
     Given a valid feature
     When it syncs to Git
