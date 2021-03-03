@@ -49,10 +49,10 @@ jobs:
           destination_repo: mypark/learn-copybara-demo
           destination_branch: master
   
-          push_include: "**.feature .github/workflows/copy-features.yml"
+          push_include: "exchange/*.feature .github/workflows/copy-features.yml"
           
           # Files to move before pushing from SoT => Destination. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to reverse of `pr_move`. `push_move` is always run before `push_replace`.
-          push_move: "exchange||features"
+          push_move: "||features||*.feature"
 
           # Workflow to execute. Defaults to auto-detect (init / push / pr).
           workflow: push 
