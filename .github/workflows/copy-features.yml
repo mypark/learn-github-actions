@@ -28,11 +28,11 @@ jobs:
           fetch-depth: 0
 
       - name: Copy to exchange tag local subfolder
-        run: echo "grep -i -l "@exchange" -d skip *.feature | while read f; do mv "$f" ./exchange"
+        run: bash "grep -i -l "@exchange" -d skip *.feature | while read f; do mv "$f" ./exchange"
         shell: bash
       
       - name: List subfolder
-        run: echo "ls ./exchange"
+        run: bash "ls ./exchange"
         shell: bash
 
       - name: Copy to destination
