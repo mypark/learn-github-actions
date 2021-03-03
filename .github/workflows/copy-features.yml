@@ -27,8 +27,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Copy to local subfolder
+      - name: Copy to exchange tag local subfolder
         run: echo 'grep -i -l "@exchange" -d skip * | while read f; do mv "$f" ./exchange; done'
+        shell: bash
       
       - name: Copy to destination
         # You may pin to the exact commit or the version.
@@ -42,16 +43,16 @@ jobs:
           
 
           sot_repo: mypark/learn-github-actions
-          sot_branch: main
+          # sot_branch: main
           
           # Destination repository.
           destination_repo: mypark/learn-copybara-demo
-          destination_branch: master
+          # destination_branch: master
   
           push_include: "**.feature .github/workflows/copy-features.yml"
           
           # Files to move before pushing from SoT => Destination. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to reverse of `pr_move`. `push_move` is always run before `push_replace`.
-          push_move: "||features"
+          push_move: "exchange||features"
 
           # Workflow to execute. Defaults to auto-detect (init / push / pr).
           workflow: push 
