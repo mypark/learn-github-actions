@@ -43,11 +43,11 @@ jobs:
           
 
           sot_repo: mypark/learn-github-actions
-          # sot_branch: main
+          sot_branch: main
           
           # Destination repository.
           destination_repo: mypark/learn-copybara-demo
-          # destination_branch: master
+          destination_branch: master
   
           push_include: "**.feature .github/workflows/copy-features.yml"
           
