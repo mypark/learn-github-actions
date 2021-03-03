@@ -52,7 +52,7 @@ jobs:
           push_include: "exchange/*.feature .github/workflows/copy-features.yml"
           
           # Files to move before pushing from SoT => Destination. In the format `from||to||match` where `match` is a glob filter to match only specific files within `from` (defaults to all). Separate each move operation by a line return. Defaults to reverse of `pr_move`. `push_move` is always run before `push_replace`.
-          push_move: "||features||*.feature"
+          push_move: "exchange||features"
 
           # Workflow to execute. Defaults to auto-detect (init / push / pr).
           workflow: push 
