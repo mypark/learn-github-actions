@@ -1,3 +1,4 @@
+@Exchange
 Feature: Select multiple repositories
 
   @DEMO-9 @OPEN
