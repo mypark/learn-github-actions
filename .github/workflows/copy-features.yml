@@ -31,9 +31,6 @@ jobs:
         run: grep -i -l '@exchange' -d skip *.feature | while read f; do mv "$f" ./exchange; done
         shell: bash
       
-      - name: Push folder changes back to git
-        run: git commit -am 'automatically pushing folder changes' | git push
-        shell: bash
 
       - name: Commit folder change to git
         run: |
