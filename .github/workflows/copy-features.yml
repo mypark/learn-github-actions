@@ -37,7 +37,7 @@ jobs:
 
       - name: Commit folder change to git
         run: |
-          git config user.name actions-user
+          git config user.name mypark
           git config user.email github-actions@github.com
           git add .
           git commit -am "automatically pushing folder changes"
