@@ -1,3 +1,4 @@
+@Exchange
 Feature: Generated sharable link
 
   @DEMO-10 @OPEN
